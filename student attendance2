@@ -1,0 +1,58 @@
+#include<stdio.h>
+
+void mark_Attendance(int studentnum, int attendance[], int count){
+    attendance[studentnum] = 1;
+    printf("MARKED\n",studentnum);
+}
+
+void check_Attendance(int studentnum, int attendance[], int count){
+    if(attendance[studentnum]== 1){
+        printf("PRESENT.\n",studentnum);
+    }else{
+        printf("ABSENT.\n");
+    }
+}
+
+int main(){
+
+    int attendance[100] = {0};
+    int count = 0;
+    int op;
+    int studentnum;
+
+    do{
+        printf("-------------------------------\n");
+        printf("|      --FAITH COLLEGES--     |\n");
+        printf("|      Student Attendance     |\n");
+        printf("|                             |\n");
+        printf("|  (1) Mark Attendance.       |\n");
+        printf("|  (2) Check Attendance.      |\n");
+        printf("|  (3) Log out.               |\n");
+        printf("|                             |\n");
+        printf("|                             |\n");
+        printf("-------------------------------\n");
+        printf("Enter operation: ");
+        scanf("%d",&op);
+
+        switch(op){
+            case 1:
+                printf("Enter student number: ");
+                scanf("%d", &studentnum);
+                mark_Attendance(studentnum, attendance, count);
+                count++;
+                break;
+            case 2:
+                printf("Enter student number: ");
+                scanf("%d",&studentnum);
+                check_Attendance(studentnum, attendance, count);
+                break;
+            case 3:
+                printf("Logging out...");
+                break;
+            default: 
+                printf("That's not an option!\n");
+        }
+    }while(op != 3);
+    
+    return 0;
+}
